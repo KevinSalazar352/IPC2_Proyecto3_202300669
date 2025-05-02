@@ -1,0 +1,22 @@
+Watching for file changes with StatReloader
+Archivo recibido: ArchivoEntrada.xml
+Enviando archivo a la API...
+Respuesta de la API: 500
+Error HTTP 500: 500 - Error al procesar el archivo: Object of type set is not JSON serializable
+Archivo temporal ArchivoEntrada.xml eliminado
+Archivo recibido: ArchivoEntrada.xml
+Enviando archivo a la API...
+Respuesta de la API: 500
+Error HTTP 500: 500 - Error al procesar el archivo: Object of type set is not JSON serializable
+Archivo temporal ArchivoEntrada.xml eliminado
+Archivo recibido: ArchivoEntrada (2).xml
+Enviando archivo a la API...
+Respuesta de la API: 500
+Error HTTP 500: 500 - Error al procesar el archivo: Object of type set is not JSON serializable
+Archivo temporal ArchivoEntrada (2).xml eliminado
+Watching for file changes with StatReloader
+Archivo recibido: ArchivoEntrada (3).xml
+Enviando archivo a la API...
+Respuesta de la API: 500
+Error HTTP 500: 500 - Error al procesar el archivo: Object of type set is not JSON serializable
+Archivo temporal ArchivoEntrada (3).xml eliminado

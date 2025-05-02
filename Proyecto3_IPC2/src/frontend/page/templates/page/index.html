@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Autorización DTE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .btn-danger {
+            background: #e74c3c;
+        }
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .summary-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .summary-card h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .loading {
+            display: none;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid #3498db;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Autorización de Documentos Tributarios Electrónicos</h1>
+        
+        <div class="form-group">
+            <h2>Cargar Archivo XML</h2>
+            <form id="upload-form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="xml_file" accept=".xml" required>
+                <button type="submit" class="btn">Procesar Archivo</button>
+                <button type="button" id="reset-btn" class="btn btn-danger">Resetear Sistema</button>
+            </form>
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Procesando archivo, por favor espere...</p>
+            </div>
+        </div>
+        
+        {% if error %}
+            <div class="alert alert-error">
+                <strong>Error:</strong> {{ error }}
+            </div>
+        {% endif %}
+        
+        {% if success %}
+            <div class="results">
+                <div class="alert alert-success">
+                    <strong>Éxito:</strong> {{ success }}
+                </div>
+                
+                <div class="summary-card">
+                    <h3>Resumen General</h3>
+                    <p><strong>Total de facturas procesadas:</strong> {{ details.total_facturas }}</p>
+                    <p><strong>Facturas correctas:</strong> {{ details.facturas_correctas }}</p>
+                    <p><strong>Errores detectados:</strong> {{ details.errores_totales }}</p>
+                    {% if download_url %}
+                    <p>
+                        <a href="{{ download_url }}" class="btn" target="_blank">Descargar autorizaciones.xml</a>
+                    </p>
+                    {% endif %}
+                </div>
+                
+                <div class="summary-card">
+                    <h3>Resultados por Fecha</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Facturas Recibidas</th>
+                                <th>Facturas Correctas</th>
+                                <th>Emisores Únicos</th>
+                                <th>Receptores Únicos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for fecha, datos in resultados.fechas.items %}
+                            <tr>
+                                <td>{{ fecha }}</td>
+                                <td>{{ datos.facturas }}</td>
+                                <td>{{ datos.correctas }}</td>
+                                <td>{{ datos.emisores|length }}</td>
+                                <td>{{ datos.receptores|length }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>Errores Detectados</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo de Error</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tipo, cantidad in resultados.errores.items %}
+                            <tr>
+                                <td>{{ tipo|title }}</td>
+                                <td>{{ cantidad }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+        
+        document.getElementById('reset-btn').addEventListener('click', function() {
+            if (confirm('¿Está seguro que desea resetear el sistema? Esto borrará todos los datos procesados.')) {
+                document.getElementById('loading').style.display = 'block';
+                
+                fetch('/reset/', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la respuesta del servidor');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message);
+                        location.reload();
+                    } else {
+                        alert('Error: ' + (data.error || 'Error desconocido'));
+                    }
+                })
+                .catch(error => {
+                    alert('Error: ' + error.message);
+                })
+                .finally(() => {
+                    document.getElementById('loading').style.display = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

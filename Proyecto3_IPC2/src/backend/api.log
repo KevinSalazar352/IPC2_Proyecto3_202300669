@@ -1,0 +1,228 @@
+2025-05-02 00:12:39,107 - INFO - Iniciando servidor Flask
+2025-05-02 00:12:39,150 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.10:5000
+2025-05-02 00:12:39,150 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-02 00:12:39,152 - INFO -  * Restarting with stat
+2025-05-02 00:12:39,516 - INFO - Iniciando servidor Flask
+2025-05-02 00:12:39,537 - WARNING -  * Debugger is active!
+2025-05-02 00:12:39,539 - INFO -  * Debugger PIN: 201-310-896
+2025-05-02 00:13:19,714 - INFO - Iniciando procesamiento de archivo XML
+2025-05-02 00:13:19,716 - INFO - Archivo guardado temporalmente en: uploads\20250502_001319_ArchivoEntrada.xml
+2025-05-02 00:13:19,717 - INFO - Iniciando procesamiento de: uploads\20250502_001319_ArchivoEntrada.xml
+2025-05-02 00:13:19,723 - INFO - DTE aprobado: A0001 - Código: 2024032000000001
+2025-05-02 00:13:19,723 - WARNING - DTE con errores: A0002 - Errores: nit_emisor
+2025-05-02 00:13:19,723 - WARNING - DTE con errores: A0003 - Errores: nit_receptor
+2025-05-02 00:13:19,723 - INFO - DTE aprobado: A0004 - Código: 2024032000000002
+2025-05-02 00:13:19,724 - INFO - DTE aprobado: A0007 - Código: 2024032000000003
+2025-05-02 00:13:19,724 - INFO - DTE aprobado: A0005 - Código: 2024032000000004
+2025-05-02 00:13:19,724 - INFO - DTE aprobado: A0006 - Código: 2024032000000005
+2025-05-02 00:13:19,724 - INFO - DTE aprobado: A3030 - Código: 2024041200000001
+2025-05-02 00:13:19,725 - INFO - DTE aprobado: A3031 - Código: 2024041200000002
+2025-05-02 00:13:19,725 - WARNING - DTE con errores: A3032 - Errores: iva
+2025-05-02 00:13:19,725 - INFO - DTE aprobado: A1990 - Código: 2024041600000001
+2025-05-02 00:13:19,725 - WARNING - DTE con errores: A1991 - Errores: total
+2025-05-02 00:13:19,726 - INFO - DTE aprobado: A1992 - Código: 2024041600000002
+2025-05-02 00:13:19,726 - WARNING - DTE con errores: A1992 - Errores: referencia_duplicada
+2025-05-02 00:13:19,726 - INFO - DTE aprobado: A1993 - Código: 2024041600000003
+2025-05-02 00:13:19,726 - INFO - Procesamiento completado. Correctas: 10, Errores: 5
+2025-05-02 00:13:19,727 - INFO - Archivo XML procesado correctamente
+2025-05-02 00:13:19,727 - INFO - Generando archivo de salida: output\autorizaciones.xml
+2025-05-02 00:13:19,756 - INFO - Archivo de salida generado exitosamente
+2025-05-02 00:13:19,756 - INFO - Archivo de salida generado en: output\autorizaciones.xml
+2025-05-02 00:13:19,756 - ERROR - Error al procesar el archivo: Object of type set is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Users\ksala\OneDrive\Documents\Proyecto3_IPC2\src\backend\app.py", line 65, in process_xml
+    return jsonify({
+        'success': True,
+    ...<7 lines>...
+        }
+    })
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type set is not JSON serializable
+2025-05-02 00:13:19,799 - INFO - Archivo temporal uploads\20250502_001319_ArchivoEntrada.xml eliminado
+2025-05-02 00:13:19,799 - INFO - 127.0.0.1 - - [02/May/2025 00:13:19] "[35m[1mPOST /api/process-xml HTTP/1.1[0m" 500 -
+2025-05-02 00:13:57,482 - INFO - Iniciando procesamiento de archivo XML
+2025-05-02 00:13:57,488 - INFO - Archivo guardado temporalmente en: uploads\20250502_001357_ArchivoEntrada.xml
+2025-05-02 00:13:57,489 - INFO - Iniciando procesamiento de: uploads\20250502_001357_ArchivoEntrada.xml
+2025-05-02 00:13:57,495 - WARNING - DTE con errores: A0001 - Errores: referencia_duplicada
+2025-05-02 00:13:57,496 - WARNING - DTE con errores: A0002 - Errores: nit_emisor, referencia_duplicada
+2025-05-02 00:13:57,497 - WARNING - DTE con errores: A0003 - Errores: nit_receptor, referencia_duplicada
+2025-05-02 00:13:57,498 - WARNING - DTE con errores: A0004 - Errores: referencia_duplicada
+2025-05-02 00:13:57,499 - WARNING - DTE con errores: A0007 - Errores: referencia_duplicada
+2025-05-02 00:13:57,499 - WARNING - DTE con errores: A0005 - Errores: referencia_duplicada
+2025-05-02 00:13:57,500 - WARNING - DTE con errores: A0006 - Errores: referencia_duplicada
+2025-05-02 00:13:57,500 - WARNING - DTE con errores: A3030 - Errores: referencia_duplicada
+2025-05-02 00:13:57,501 - WARNING - DTE con errores: A3031 - Errores: referencia_duplicada
+2025-05-02 00:13:57,501 - WARNING - DTE con errores: A3032 - Errores: iva, referencia_duplicada
+2025-05-02 00:13:57,502 - WARNING - DTE con errores: A1990 - Errores: referencia_duplicada
+2025-05-02 00:13:57,502 - WARNING - DTE con errores: A1991 - Errores: total, referencia_duplicada
+2025-05-02 00:13:57,503 - WARNING - DTE con errores: A1992 - Errores: referencia_duplicada
+2025-05-02 00:13:57,503 - WARNING - DTE con errores: A1992 - Errores: referencia_duplicada
+2025-05-02 00:13:57,504 - WARNING - DTE con errores: A1993 - Errores: referencia_duplicada
+2025-05-02 00:13:57,504 - INFO - Procesamiento completado. Correctas: 0, Errores: 19
+2025-05-02 00:13:57,505 - INFO - Archivo XML procesado correctamente
+2025-05-02 00:13:57,505 - INFO - Generando archivo de salida: output\autorizaciones.xml
+2025-05-02 00:13:57,508 - INFO - Archivo de salida generado exitosamente
+2025-05-02 00:13:57,509 - INFO - Archivo de salida generado en: output\autorizaciones.xml
+2025-05-02 00:13:57,509 - ERROR - Error al procesar el archivo: Object of type set is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Users\ksala\OneDrive\Documents\Proyecto3_IPC2\src\backend\app.py", line 65, in process_xml
+    return jsonify({
+        'success': True,
+    ...<7 lines>...
+        }
+    })
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type set is not JSON serializable
+2025-05-02 00:13:57,513 - INFO - Archivo temporal uploads\20250502_001357_ArchivoEntrada.xml eliminado
+2025-05-02 00:13:57,514 - INFO - 127.0.0.1 - - [02/May/2025 00:13:57] "[35m[1mPOST /api/process-xml HTTP/1.1[0m" 500 -
+2025-05-02 00:15:10,169 - INFO - Iniciando procesamiento de archivo XML
+2025-05-02 00:15:10,173 - INFO - Archivo guardado temporalmente en: uploads\20250502_001510_ArchivoEntrada (2).xml
+2025-05-02 00:15:10,174 - INFO - Iniciando procesamiento de: uploads\20250502_001510_ArchivoEntrada (2).xml
+2025-05-02 00:15:10,178 - WARNING - DTE con errores: A0001 - Errores: referencia_duplicada
+2025-05-02 00:15:10,179 - WARNING - DTE con errores: A0002 - Errores: nit_emisor, referencia_duplicada
+2025-05-02 00:15:10,180 - WARNING - DTE con errores: A0003 - Errores: nit_receptor, referencia_duplicada
+2025-05-02 00:15:10,184 - WARNING - DTE con errores: A0004 - Errores: referencia_duplicada
+2025-05-02 00:15:10,185 - WARNING - DTE con errores: A0007 - Errores: referencia_duplicada
+2025-05-02 00:15:10,186 - WARNING - DTE con errores: A0005 - Errores: referencia_duplicada
+2025-05-02 00:15:10,187 - WARNING - DTE con errores: A0006 - Errores: referencia_duplicada
+2025-05-02 00:15:10,187 - WARNING - DTE con errores: A3030 - Errores: referencia_duplicada
+2025-05-02 00:15:10,188 - WARNING - DTE con errores: A3031 - Errores: referencia_duplicada
+2025-05-02 00:15:10,189 - WARNING - DTE con errores: A3032 - Errores: iva, referencia_duplicada
+2025-05-02 00:15:10,190 - WARNING - DTE con errores: A1990 - Errores: referencia_duplicada
+2025-05-02 00:15:10,190 - WARNING - DTE con errores: A1991 - Errores: total, referencia_duplicada
+2025-05-02 00:15:10,191 - WARNING - DTE con errores: A1992 - Errores: referencia_duplicada
+2025-05-02 00:15:10,192 - WARNING - DTE con errores: A1992 - Errores: referencia_duplicada
+2025-05-02 00:15:10,193 - WARNING - DTE con errores: A1993 - Errores: referencia_duplicada
+2025-05-02 00:15:10,193 - INFO - Procesamiento completado. Correctas: 0, Errores: 19
+2025-05-02 00:15:10,194 - INFO - Archivo XML procesado correctamente
+2025-05-02 00:15:10,194 - INFO - Generando archivo de salida: output\autorizaciones.xml
+2025-05-02 00:15:10,202 - INFO - Archivo de salida generado exitosamente
+2025-05-02 00:15:10,203 - INFO - Archivo de salida generado en: output\autorizaciones.xml
+2025-05-02 00:15:10,204 - ERROR - Error al procesar el archivo: Object of type set is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Users\ksala\OneDrive\Documents\Proyecto3_IPC2\src\backend\app.py", line 65, in process_xml
+    return jsonify({
+        'success': True,
+    ...<7 lines>...
+        }
+    })
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type set is not JSON serializable
+2025-05-02 00:15:10,209 - INFO - Archivo temporal uploads\20250502_001510_ArchivoEntrada (2).xml eliminado
+2025-05-02 00:15:10,209 - INFO - 127.0.0.1 - - [02/May/2025 00:15:10] "[35m[1mPOST /api/process-xml HTTP/1.1[0m" 500 -
+2025-05-02 00:15:50,424 - INFO - Iniciando servidor Flask
+2025-05-02 00:15:50,457 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.10:5000
+2025-05-02 00:15:50,457 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-02 00:15:50,459 - INFO -  * Restarting with stat
+2025-05-02 00:15:50,732 - INFO - Iniciando servidor Flask
+2025-05-02 00:15:50,747 - WARNING -  * Debugger is active!
+2025-05-02 00:15:50,749 - INFO -  * Debugger PIN: 201-310-896
+2025-05-02 00:16:15,457 - INFO - Iniciando procesamiento de archivo XML
+2025-05-02 00:16:15,461 - INFO - Archivo guardado temporalmente en: uploads\20250502_001615_ArchivoEntrada (3).xml
+2025-05-02 00:16:15,462 - INFO - Iniciando procesamiento de: uploads\20250502_001615_ArchivoEntrada (3).xml
+2025-05-02 00:16:15,477 - INFO - DTE aprobado: A0001 - Código: 2024032000000001
+2025-05-02 00:16:15,478 - WARNING - DTE con errores: A0002 - Errores: nit_emisor
+2025-05-02 00:16:15,479 - WARNING - DTE con errores: A0003 - Errores: nit_receptor
+2025-05-02 00:16:15,480 - INFO - DTE aprobado: A0004 - Código: 2024032000000002
+2025-05-02 00:16:15,480 - INFO - DTE aprobado: A0007 - Código: 2024032000000003
+2025-05-02 00:16:15,481 - INFO - DTE aprobado: A0005 - Código: 2024032000000004
+2025-05-02 00:16:15,482 - INFO - DTE aprobado: A0006 - Código: 2024032000000005
+2025-05-02 00:16:15,483 - INFO - DTE aprobado: A3030 - Código: 2024041200000001
+2025-05-02 00:16:15,483 - INFO - DTE aprobado: A3031 - Código: 2024041200000002
+2025-05-02 00:16:15,484 - WARNING - DTE con errores: A3032 - Errores: iva
+2025-05-02 00:16:15,484 - INFO - DTE aprobado: A1990 - Código: 2024041600000001
+2025-05-02 00:16:15,485 - WARNING - DTE con errores: A1991 - Errores: total
+2025-05-02 00:16:15,486 - INFO - DTE aprobado: A1992 - Código: 2024041600000002
+2025-05-02 00:16:15,487 - WARNING - DTE con errores: A1992 - Errores: referencia_duplicada
+2025-05-02 00:16:15,488 - INFO - DTE aprobado: A1993 - Código: 2024041600000003
+2025-05-02 00:16:15,488 - INFO - Procesamiento completado. Correctas: 10, Errores: 5
+2025-05-02 00:16:15,489 - INFO - Archivo XML procesado correctamente
+2025-05-02 00:16:15,489 - INFO - Generando archivo de salida: output\autorizaciones.xml
+2025-05-02 00:16:15,496 - INFO - Archivo de salida generado exitosamente
+2025-05-02 00:16:15,496 - INFO - Archivo de salida generado en: output\autorizaciones.xml
+2025-05-02 00:16:15,497 - ERROR - Error al procesar el archivo: Object of type set is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Users\ksala\OneDrive\Documents\Proyecto3_IPC2\src\backend\app.py", line 65, in process_xml
+    return jsonify({
+        'success': True,
+    ...<7 lines>...
+        }
+    })
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 261, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\ksala\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\json\provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type set is not JSON serializable
+2025-05-02 00:16:15,502 - INFO - Archivo temporal uploads\20250502_001615_ArchivoEntrada (3).xml eliminado
+2025-05-02 00:16:15,505 - INFO - 127.0.0.1 - - [02/May/2025 00:16:15] "[35m[1mPOST /api/process-xml HTTP/1.1[0m" 500 -
